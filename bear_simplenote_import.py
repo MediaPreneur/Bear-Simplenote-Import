@@ -91,7 +91,7 @@ def get_simplenotes():
                 bear_taglist.append('#.pinned')
             if markdown:
                 if simplenote_tag != '':
-                    bear_taglist.append(simplenote_tag + '/.markdown')
+                    bear_taglist.append(simplenote_tag + '/_markdown')
                 else:
                     bear_taglist.append('#.markdown')
             if simplenote_tag2 != '':

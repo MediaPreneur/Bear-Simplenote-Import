@@ -15,3 +15,5 @@ with both creation and modified dates from Simplenote :)
 **NOTE!** Make sure nvALT is not active!
 
 **NOTE!** Script does not delete old exports, so if running this several times, you should delete old export manually before running it second time!
+
+*See also: [Bear Power Pack](https://github.com/rovest/Bear-Power-Pack/blob/master/README.md)*

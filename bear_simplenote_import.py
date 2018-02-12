@@ -30,12 +30,12 @@ direct_import = False   # If `True`, cre and mod dates are not preserved, but no
                         # and Simplenote cre- and mod-dates are both set to files :)
                         # Then import manually in Bear with option: 
                         # `Keep original creation and modification date` checked.
-include_trash = False
 
 simplenote_tag = '#simplenote'      # Root for nested tags, and applied to all notes without tags
 use_as_root_for_other_tags = True   # If False, tags will not appear under `simplenote_tag`
 simplenote_tag2 = '#.simplenote import#'    # Flat tag to all notes that can easily be 
                                             # deleted in Bear after successful import
+include_trash = False
 trash_tag = '#.simplenote/trashed'
 
 import datetime

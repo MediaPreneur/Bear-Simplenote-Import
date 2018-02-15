@@ -8,7 +8,8 @@ bear_simplenote_import.py
 (Should work with simplenote.app Version 1.2 (1200) from Mac appstore installed. Open simplenote.app and let it finish any pending sync before running this script.)
 * As file export: `simplenote_id_#.txt`, with tags, creation, and modified dates from Simplenote :)  
 * Then manual file import in Bear with option:  
-`Keep original creation and modification date` checked.
+`Keep original creation and modification date` checked.   
+Leave all the other options UNCHECKED!
 * Or chose direct import into Bear, with tags, but no dates.
 
 **NOTE!** Make sure nvALT is not active!

@@ -5,8 +5,8 @@ bear_simplenote_import.py
 
 
 * Text import to Bear from Simlenote's local xml database  
-(Should work with simplenote.app Version 1.2 (1200) from Mac appstore installed.
-* Open simplenote.app and let it finish any pending sync before running this script.)
+(Should work with simplenote.app Version 1.2 (1200) from Mac appstore installed.)
+* Open simplenote.app and let it finish any pending sync before running this script.
 * As file export: `simplenote_id_#.txt`, with tags, creation, and modified dates from Simplenote :)  
 * Then manual file import in Bear with option:  
 `Keep original creation and modification date` checked.   

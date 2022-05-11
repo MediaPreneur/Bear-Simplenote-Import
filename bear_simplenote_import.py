@@ -82,7 +82,7 @@ def get_simplenotes():
             # Fix xml unicode escaped '< > & \':
             # (other things like emojis are not fixed here ;(
             content = raw_content.replace('\\u3c00', '<').replace('\\u3e00', '>').replace('\\u2600', '&').replace('\\\\', '\\')
-        
+
         if deleted:
             text_tags = trash_tag
         else:
@@ -91,7 +91,7 @@ def get_simplenotes():
                 bear_taglist.append('#.pinned')
             if markdown:
                 if simplenote_tag != '':
-                    bear_taglist.append(simplenote_tag + '/_markdown')
+                    bear_taglist.append(f'{simplenote_tag}/_markdown')
                 else:
                     bear_taglist.append('#.markdown')
             if simplenote_tag2 != '':
@@ -99,16 +99,14 @@ def get_simplenotes():
                 bear_taglist.append(simplenote_tag2)
             if taglist:
                 # Notes with tags:
-                if use_as_root_for_other_tags and simplenote_tag != '':
-                    for tag in taglist:
-                        bear_tag = simplenote_tag + '/' + tag
-                        if ' ' in bear_tag: bear_tag += "#"
-                        bear_taglist.append(bear_tag)
-                else:
-                    for tag in taglist:
-                        bear_tag = '#' + tag
-                        if ' ' in bear_tag: bear_tag += "#"
-                        bear_taglist.append(bear_tag)
+                for tag in taglist:
+                                    # Notes with tags:
+                    if use_as_root_for_other_tags and simplenote_tag != '':
+                        bear_tag = f'{simplenote_tag}/{tag}'
+                    else:
+                        bear_tag = f'#{tag}'
+                    if ' ' in bear_tag: bear_tag += "#"
+                    bear_taglist.append(bear_tag)
             elif simplenote_tag != '':
                 # Add simplenote_tag if no other tags
                 bear_taglist.append(simplenote_tag)
@@ -120,14 +118,14 @@ def get_simplenotes():
 def make_bear_note(note_text, creationdate, modificationdate, note_id):
     note_lines = note_text.splitlines()
     if not note_lines[0].startswith('#'):
-        note_lines[0] = '# ' + note_lines[0]
+        note_lines[0] = f'# {note_lines[0]}'
     if direct_import:
         x_command = 'bear://x-callback-url/create?show_window=no&text=' 
         x_command_text = x_command + urllib.parse.quote('\n'.join(note_lines))
         subprocess.call(["open", x_command_text])
         time.sleep(.2)
     else:
-        file_name = os.path.join(export_path, 'simplenote_id_' + note_id + '.txt')
+        file_name = os.path.join(export_path, f'simplenote_id_{note_id}.txt')
         write_file(file_name, '\n'.join(note_lines))
         # By setting creationdate first and modificationdate second,
         # both dates are set with the same `os.utime` command! :)
